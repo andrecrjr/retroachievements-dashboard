@@ -3,15 +3,11 @@ import { StatsGrid } from '@/components/dashboard/stats-grid';
 import { RecentGames } from '@/components/dashboard/recent-games';
 import { DashboardHeader } from '@/components/dashboard/header';
 import { fetchUserSummary, fetchRecentGames } from '@/lib/api/retro';
-import { IUserSummary, Game } from '@/lib/types/retro';
-import { useParams } from 'next/navigation';
-import { DashboardSkeleton } from '@/components/dashboard/loading';
-import { DashboardError } from '@/components/dashboard/error';
 
 export type Props = {
-  params:{
+  params:Promise<{
     username: string
-  }
+  }>
 }
 
 export default async function DashboardPage({ params }: Props) {
