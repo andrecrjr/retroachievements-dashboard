@@ -1,7 +1,7 @@
 import GameBoard from '@/components/gameboard';
 import { getGameInfoAndUserProgress } from '@/lib/api/retro';
 import { redirect } from 'next/navigation';
-import React from 'react';
+
 
 
 type Props = {

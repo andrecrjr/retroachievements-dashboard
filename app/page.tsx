@@ -23,7 +23,7 @@ export default function Home() {
         <div className="text-center">
           <Trophy className="mx-auto h-12 w-12 text-primary" />
           <h1 className="mt-6 text-3xl font-bold tracking-tight">
-            RetroAchievements Dashboard
+            RetroDash
           </h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Enter your RetroAchievements username to view your stats

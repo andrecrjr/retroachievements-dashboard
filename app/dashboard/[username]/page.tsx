@@ -5,27 +5,27 @@ import { DashboardHeader } from '@/components/dashboard/header';
 import { fetchUserSummary, fetchRecentGames } from '@/lib/api/retro';
 
 export type Props = {
-  params:Promise<{
-    username: string
-  }>
+    params: Promise<{[key:string]:string | string[] | undefined}>
+    searchParams: Promise<{[key:string]:string | string[] | undefined}>
 }
 
 export default async function DashboardPage({ params }: Props) {
   const {username} = await params
+  let user =username as string
   
   const [summaryData, gamesData] = await Promise.all([
-          fetchUserSummary(username),
-          fetchRecentGames(username),
+          fetchUserSummary(user),
+          fetchRecentGames(user),
         ]);
 
   return (
     <div className="container mx-auto py-8">
-      <DashboardHeader username={username} motto={summaryData.Motto} />
+      <DashboardHeader username={user} motto={summaryData.Motto} />
       <div className="mt-8">
         <StatsGrid userSummary={summaryData} />
       </div>
       <div className="mt-8">
-        <RecentGames games={gamesData} user={username} />
+        <RecentGames games={gamesData} user={user} />
       </div>
     </div>
   );

@@ -2,12 +2,13 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import './globals.css';
+import Header from '@/components/header';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'RetroAchievements Dashboard',
-  description: 'Track your RetroAchievements progress and stats',
+  title: 'RetroDash - RetroAchievements watch',
+  description: 'Track your RetroAchievements progress and stats in fancy way',
   icons: {
     icon: '/favicon.ico',
   },
@@ -27,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Header />
           <div className="min-h-screen bg-background">
             <main>{children}</main>
           </div>
