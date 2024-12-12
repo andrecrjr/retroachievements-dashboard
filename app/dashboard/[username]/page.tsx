@@ -25,7 +25,7 @@ export default async function DashboardPage({ params }: Props) {
         <StatsGrid userSummary={summaryData} />
       </div>
       <div className="mt-8">
-        <RecentGames games={gamesData} />
+        <RecentGames games={gamesData} user={username} />
       </div>
     </div>
   );

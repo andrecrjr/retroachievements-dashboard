@@ -70,10 +70,10 @@ export interface RecentlyPlayed {
 }
 
 export interface Awarded {
- [record : string]: N15758
+ [record : string]: AwardUser
 }
 
-export interface N15758 {
+export interface AwardUser {
   NumPossibleAchievements: number
   PossibleScore: number
   NumAchieved: number
@@ -83,29 +83,14 @@ export interface N15758 {
 }
 
 export interface RecentAchievements {
-  "15758": N157582
+  [id: string]: Achievements
 }
 
-export interface N157582 {
-  "293505": N293505
-  "293526": N293526
-}
+export interface Achievements {
+  [id: string]: RecentGameAchievement
+}[]
 
-export interface N293505 {
-  ID: number
-  GameID: number
-  GameTitle: string
-  Title: string
-  Description: string
-  Points: number
-  Type: any
-  BadgeName: string
-  IsAwarded: string
-  DateAwarded: string
-  HardcoreAchieved: number
-}
-
-export interface N293526 {
+export interface RecentGameAchievement {
   ID: number
   GameID: number
   GameTitle: string
@@ -135,4 +120,60 @@ export interface LastGame {
   Genre: string
   Released: string
   IsFinal: number
+}
+
+export interface UserGameDetail {
+  ID: number
+  Title: string
+  ConsoleID: number
+  ForumTopicID: number
+  Flags: any
+  ImageIcon: string
+  ImageTitle: string
+  ImageIngame: string
+  ImageBoxArt: string
+  Publisher: string
+  Developer: string
+  Genre: string
+  Released: string
+  ReleasedAtGranularity: string
+  IsFinal: number
+  RichPresencePatch: string
+  GuideURL: any
+  ConsoleName: string
+  ParentGameID: any
+  NumDistinctPlayers: number
+  NumAchievements: number
+  Achievements: AchievementsUserGameDetail
+  NumAwardedToUser: number
+  NumAwardedToUserHardcore: number
+  NumDistinctPlayersCasual: number
+  NumDistinctPlayersHardcore: number
+  UserCompletion: string
+  UserCompletionHardcore: string
+  HighestAwardKind: string
+  HighestAwardDate: string
+}
+
+export interface AchievementsUserGameDetail {
+  [gameId:string]: DetailGameAchievement
+}[]
+
+export interface DetailGameAchievement {
+  ID: number
+  NumAwarded: number
+  NumAwardedHardcore: number
+  Title: string
+  Description: string
+  Points: number
+  TrueRatio: number
+  Author: string
+  DateModified: string
+  DateCreated: string
+  BadgeName: string
+  DisplayOrder: number
+  MemAddr: string
+  type: string
+  DateEarnedHardcore: string
+  DateEarned: string
 }

@@ -1,14 +1,13 @@
-'use client';
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Game, Games } from "@/lib/types/retro";
-import Image from "next/image";
+import Link from "next/link";
 
 interface RecentGamesProps {
   games: Games;
+  user?: string;
 }
 
-export function RecentGames({ games }: RecentGamesProps) {
+export function RecentGames({ games, user }: RecentGamesProps) {
   if (!games || games.length === 0) {
     return (
       <Card>
@@ -44,7 +43,9 @@ export function RecentGames({ games }: RecentGamesProps) {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium leading-none truncate">
+                  <Link href={`/game/${game.GameID}?u=${user}`}>
                   {game.Title}
+                  </Link>
                 </p>
                 <p className="text-sm text-muted-foreground">
                   {game.ConsoleName}
